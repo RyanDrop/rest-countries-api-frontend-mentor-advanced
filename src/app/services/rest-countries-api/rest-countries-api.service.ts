@@ -43,4 +43,17 @@ export class RestCountriesApiService {
 
     return country.name;
   }
+
+  searchCountries(search: string) {
+    const getCountries =
+      this.filters.length === 0
+        ? this.localStorage.get('countries')
+        : this.filters;
+
+    const filterCountries = getCountries.filter((country: { name: string }) => {
+      return country.name.toLowerCase().includes(search.toLowerCase());
+    });
+
+    return (this.researchedCountries = filterCountries);
+  }
 }
