@@ -1,0 +1,15 @@
+<div [routerLink]="'/' + country.name">
+  <img [src]="country.flag" alt="country-flag" />
+  <div class="data">
+    <h1>{{ country.name }}</h1>
+    <p>
+      Population: <span>{{ country.population | number: "1.0" }}</span>
+    </p>
+    <p>
+      Capital: <span>{{ country.capital }}</span>
+    </p>
+    <p>
+      Region: <span>{{ country.region }}</span>
+    </p>
+  </div>
+</div>
