@@ -56,4 +56,20 @@ export class RestCountriesApiService {
 
     return (this.researchedCountries = filterCountries);
   }
+
+  filterCountriesByRegion(region: string) {
+    const getCountries = this.localStorage.get('countries');
+    if (region === 'All regions') {
+      this.filters = getCountries;
+      return (this.countries = getCountries);
+    }
+
+    const filterCountries = getCountries.filter(
+      (country: { region: string }) => {
+        return country.region.toLowerCase().includes(region.toLowerCase());
+      }
+    );
+    this.filters = filterCountries;
+    return (this.countries = filterCountries);
+  }
 }
