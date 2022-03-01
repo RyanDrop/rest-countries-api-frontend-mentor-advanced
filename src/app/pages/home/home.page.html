@@ -1,0 +1,35 @@
+<div class="filters">
+  <div class="search">
+    <mat-form-field appearance="outline" class="search">
+      <mat-label><mat-icon>search</mat-icon>Search for a country...</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="searchCountry"
+        autocomplete="off"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="region-filter">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter by region</mat-label>
+      <mat-select>
+        <mat-option
+          *ngFor="let region of regions"
+          value="{{region}}"
+          (click)="filterByRegion(region)"
+          >{{region}}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="cards-display">
+  <app-country-card
+    *ngFor="let country of countries"
+    [country]="country"
+  ></app-country-card>
+  <p></p>
+</div>
