@@ -27,4 +27,20 @@ export class RestCountriesApiService {
     });
   }
 
+  getCountryByName(name: string) {
+    const storageCountries = this.localStorage.get('countries');
+    const country = storageCountries.find((country: { name: string }) => {
+      return country.name.toLowerCase().includes(name.toLowerCase());
+    });
+    return country;
+  }
+
+  getCountryByCode(code: string) {
+    const storageCountries = this.localStorage.get('countries');
+    const country = storageCountries.find((country: { alpha3Code: string }) => {
+      return country.alpha3Code.includes(code);
+    });
+
+    return country.name;
+  }
 }
