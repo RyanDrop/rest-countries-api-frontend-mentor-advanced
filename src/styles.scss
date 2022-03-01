@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import "reset";
+@import "colors";
+@import "mixins";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  transition: background-color 0.5s, color 0.5s;
+  background-color: var(--background);
+  font-family: "Noto Sans", sans-serif;
+}
+
+strong {
+  font-weight: bold;
+}
+
+:root {
+  @each $name, $color in $project-colors {
+    --#{$name}: #{$color};
+  }
+  &.dark-mode {
+    @each $name, $color in $project-colors-theme-dark {
+      --#{$name}: #{$color};
+    }
+  }
+}
