@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Country } from 'src/models/countries.models';
+import { Country } from 'src/models/country.models';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 
 @Injectable({
