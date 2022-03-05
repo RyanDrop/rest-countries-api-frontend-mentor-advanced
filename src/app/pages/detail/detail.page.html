@@ -3,22 +3,24 @@
     <span><mat-icon>arrow_back</mat-icon>Back</span>
   </div>
 </div>
-<div *ngIf="country">
+<div *ngIf="country" class="country-info">
   <div class="country-layout">
     <img [src]="country.flag" />
 
     <div class="country-detail">
       <h1>{{ country.name }}</h1>
       <div class="info">
-        <div class="a">
+        <div>
           <p>Native Name: <span>{{ country.nativeName }}</span></p>
-          <p>Population: <span>{{ country.population }}</span></p>
+          <p>
+            Population: <span>{{ country.population | number: "1.0" }}</span>
+          </p>
           <p>Region: <span>{{ country.region }}</span></p>
           <p>Sub Region: <span>{{ country.subregion }}</span></p>
           <p>Capital: <span>{{ country.capital }}</span></p>
         </div>
 
-        <div class="b">
+        <div>
           <p>Top Level Domain: <span>{{ country.topLevelDomain }}</span></p>
           <p>
             Currencies: <span> {{displayCurrencies(country.currencies)}}</span>
@@ -29,15 +31,13 @@
         </div>
       </div>
       <div class="border-countries">
-        <h2>
-          Border Countries:
-          <button
-            *ngFor="let border of country.borders"
-            [routerLink]="'/' + displayBorder(border)"
-          >
-            {{displayBorder(border)}}
-          </button>
-        </h2>
+        <h2>Border Countries:</h2>
+        <button
+          *ngFor="let border of country.borders"
+          [routerLink]="'/' + displayBorder(border)"
+        >
+          {{displayBorder(border)}}
+        </button>
       </div>
     </div>
   </div>
