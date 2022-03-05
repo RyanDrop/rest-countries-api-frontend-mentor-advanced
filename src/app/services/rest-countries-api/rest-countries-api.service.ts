@@ -18,12 +18,15 @@ export class RestCountriesApiService {
   ) {}
 
   getAllCountries() {
-    const storageCountries = this.localStorage.get('countries');
-    if (storageCountries.length) return (this.countries = storageCountries);
+    const storageCountries: Country[] = this.localStorage.get('countries');
+    if (storageCountries.length)
+      return this.allCountries$$.next(storageCountries);
 
-    return this.http.get(`${this.API_URL}all`).subscribe((countries) => {
+    this.http
+      .get(`${this.REST_COUNTRIES_API_URL}all`)
+      .subscribe((countries) => {
       this.localStorage.set('countries', countries);
-      this.countries = this.localStorage.get('countries');
+        this.allCountries$$.next(this.localStorage.get('countries'));
     });
   }
 
