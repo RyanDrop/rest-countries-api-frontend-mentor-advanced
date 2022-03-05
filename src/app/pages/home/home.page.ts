@@ -14,15 +14,38 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.restCountriesApi.getAllCountries();
+  createAndInitializeFormGroup() {
+    this.filtersGroup = new FormGroup({
+      search: new FormControl(null),
+      region: new FormControl(null),
+    });
+
+    this.filtersGroup.valueChanges
+      .pipe(debounceTime(400))
+      .subscribe((filters) => {
+        this.filtersCountriesByRegionAndName(filters);
+      });
   }
 
-  get countries() {
-    if (this.searchCountry.length === 0) return this.restCountriesApi.countries;
-    this.restCountriesApi.searchCountries(this.searchCountry);
-    return this.restCountriesApi.researchedCountries;
+  filtersCountriesByRegionAndName(filters: { search: string; region: string }) {
+    const { search, region } = filters;
+    let countries = this.restCountriesApi.getCountriesByLocalStorage();
+
+    if (region) {
+      const filterByRegion = countries.filter(
+        (country) => country.region === region
+      );
+      countries = filterByRegion;
+    }
+    if (search) {
+      const filterBySearch = countries.filter((country) => {
+        const countryNameLowerCase = country.name.toLowerCase();
+        const searchLowerCase = search.toLowerCase();
+        return countryNameLowerCase.includes(searchLowerCase);
+      });
+      countries = filterBySearch;
   }
 
-  filterByRegion(region: string) {
-    this.restCountriesApi.filterCountriesByRegion(region);
+    return this.countries$$.next(countries);
   }
 }
