@@ -29,7 +29,12 @@
       }
     }
   }
+  .country-info {
+    display: flex;
+    justify-content: center;
+  }
   .country-layout {
+    width: min(1200px, 100%);
     padding: 0 50px;
     display: flex;
     justify-content: space-between;
@@ -50,12 +55,12 @@
         width: 100%;
       }
       p {
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 15px;
+        font-weight: 600;
         margin: 8px 0;
         color: var(--text);
         span {
-          font-weight: normal;
+          font-weight: 500;
         }
       }
       .info {
@@ -67,11 +72,17 @@
         width: 100%;
       }
       .border-countries {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        margin-top: 20px;
         h2 {
+          font-size: 18px;
           font-weight: 600;
+          margin: 0 3px 6px 3px;
         }
         button {
-          padding: 5px 10px;
+          padding: 6px 10px;
           background: var(--elements);
           color: var(--text);
           border: none;

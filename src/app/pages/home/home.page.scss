@@ -1,14 +1,24 @@
-@import "colors";
+@import "./../../../styles.scss";
 
 :host {
   .cards-display {
-    padding: 0px 50px;
+    padding: 0px 50px 50px 50px;
     display: grid;
     flex-direction: row;
-    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+    grid-template-columns: repeat(auto-fit, 280px);
+    justify-content: space-between;
     grid-gap: 50px;
-    grid-auto-flow: unset;
-    justify-items: center;
+
+    app-country-card {
+      animation: opacity 0.5s ease-in-out;
+    }
+    p {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 600;
+      color: var(--text);
+    }
   }
 
   .filters {
@@ -61,9 +71,11 @@
     }
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 710px) {
     .cards-display {
-      padding: 0 20px;
+      padding: 0 20px 20px 20px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      justify-items: center;
     }
     .filters {
       display: flex;

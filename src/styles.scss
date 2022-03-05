@@ -1,20 +1,17 @@
 @import "reset";
 @import "colors";
 @import "mixins";
+@import "keyframes";
 
 html,
 body {
   height: 100%;
+  font-family: "Noto Sans", sans-serif;
 }
 body {
   margin: 0;
   transition: background-color 0.5s, color 0.5s;
   background-color: var(--background);
-  font-family: "Noto Sans", sans-serif;
-}
-
-strong {
-  font-weight: bold;
 }
 
 :root {
