@@ -15,7 +15,7 @@
   </mat-form-field>
 </form>
 
-<div class="cards-display">
+<div class="cards-display" [class.filter]="countries$$.value.length <= 4">
   <app-country-card
     *ngFor="let country of countries$$ | async"
     [country]="country"

@@ -8,14 +8,17 @@
     grid-template-columns: repeat(auto-fit, 280px);
     justify-content: space-between;
     grid-gap: 50px;
+    &.filter {
+      justify-content: unset;
+      justify-items: center;
+    }
 
     app-country-card {
       animation: opacity 0.5s ease-in-out;
     }
     p {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      text-align: center;
       font-weight: 600;
       color: var(--text);
     }
