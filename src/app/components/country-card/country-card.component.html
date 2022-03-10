@@ -1,4 +1,4 @@
-<div [routerLink]="'/' + country.name">
+<div data-testid="country-card" [routerLink]="'/detail/' + country.name">
   <img [src]="country.flag" alt="country-flag" />
   <div class="data">
     <h1>{{ country.name }}</h1>

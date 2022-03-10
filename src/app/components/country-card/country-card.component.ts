@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Country } from 'app/models/country.models';
 
 @Component({
   selector: 'app-country-card',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./country-card.component.scss'],
 })
 export class CountryCardComponent {
-  @Input() country: any;
+  @Input() country: Country;
 }
