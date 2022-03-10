@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomePage,
   },
   {
-    path: ':country',
+    path: 'detail/:country',
     component: DetailPage,
   },
 ];
