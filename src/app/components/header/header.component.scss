@@ -1,5 +1,5 @@
-@import "mixins";
-@import "colors";
+@import "./../../../styles.scss";
+
 :host {
   user-select: none;
   display: flex;

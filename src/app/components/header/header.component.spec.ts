@@ -1,25 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { render, screen } from '@testing-library/angular';
+import userEvent from '@testing-library/user-event';
 import { HeaderComponent } from './header.component';
 
+const $getDivDarkMode = () => screen.getByTestId('dark-mode') as HTMLDivElement;
+const $html = document.documentElement;
+
 describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+  it('toggle dark-mode', async () => {
+    await render(HeaderComponent, {
+      imports: [],
+    });
+    expect($getDivDarkMode()).toBeTruthy();
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
-  });
+    userEvent.click($getDivDarkMode());
+    expect($html.classList.contains('dark-mode')).toBeTruthy();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    userEvent.click($getDivDarkMode());
+    expect($html.classList.contains('dark-mode')).toBeFalsy();
   });
 });
