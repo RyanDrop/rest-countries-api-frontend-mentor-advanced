@@ -1,17 +1,17 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { RestCountriesApiService } from 'src/app/services/rest-countries-api/rest-countries-api.service';
-import { Currency, Language } from 'src/models/country.models';
+import { Currency, Language } from '@models/country.models';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { RestCountriesApiService } from '@services/rest-countries-api/rest-countries-api.service';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.page.html',
   styleUrls: ['./detail.page.scss'],
 })
-export class DetailPage implements OnInit, OnDestroy {
-  currentCountry!: string;
-  subs!: Subscription;
+@UntilDestroy()
+export class DetailPage implements OnInit {
+  currentCountry: string;
 
   constructor(
     private restCountriesApi: RestCountriesApiService,
@@ -19,7 +19,7 @@ export class DetailPage implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.subs = this.route.params.subscribe((params) => {
+    this.route.params.pipe(untilDestroyed(this)).subscribe((params) => {
       this.currentCountry = params['country'];
     });
   }
@@ -38,9 +38,5 @@ export class DetailPage implements OnInit, OnDestroy {
 
   displayBorder(borders: string) {
     return this.restCountriesApi.getCountryByCode(borders);
-  }
-
-  ngOnDestroy(): void {
-    this.subs.unsubscribe();
   }
 }

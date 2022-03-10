@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Country } from '@models/country.models';
+import { RestCountriesApiService } from '@services/rest-countries-api/rest-countries-api.service';
 import { BehaviorSubject, debounceTime } from 'rxjs';
-import { RestCountriesApiService } from 'src/app/services/rest-countries-api/rest-countries-api.service';
-import { Country } from 'src/models/country.models';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { Country } from 'src/models/country.models';
 })
 export class HomePage implements OnInit {
   regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
-  filtersGroup!: FormGroup;
+  filtersGroup: FormGroup;
   countries$$ = new BehaviorSubject<Country[]>([]);
 
   constructor(private restCountriesApi: RestCountriesApiService) {}
@@ -53,7 +53,6 @@ export class HomePage implements OnInit {
       });
       countries = filterBySearch;
     }
-
     return this.countries$$.next(countries);
   }
 }

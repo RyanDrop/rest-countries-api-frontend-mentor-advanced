@@ -1,12 +1,18 @@
-<form class="filters" [formGroup]="filtersGroup">
+<form class="filters" [formGroup]="filtersGroup" data-testid="filter-group">
   <mat-form-field appearance="outline" class="search">
     <mat-label><mat-icon>search</mat-icon>Search for a country...</mat-label>
-    <input matInput type="text" formControlName="search" autocomplete="off" />
+    <input
+      matInput
+      type="text"
+      formControlName="search"
+      data-testid="input-search"
+      autocomplete="off"
+    />
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="region-filter">
     <mat-label>Filter by region</mat-label>
-    <mat-select formControlName="region">
+    <mat-select formControlName="region" data-testid="mat-select">
       <mat-option>--</mat-option>
       <mat-option *ngFor="let region of regions" value="{{region}}"
         >{{region}}</mat-option
