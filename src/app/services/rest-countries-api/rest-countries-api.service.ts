@@ -17,27 +17,27 @@ export class RestCountriesApiService {
   ) {}
 
   getAllCountries() {
-    const storageCountries = this.getCountriesByLocalStorage();
+    const storageCountries = this.getCountriesFromLocalStorage();
     if (storageCountries.length)
       return this.allCountries$$.next(storageCountries);
 
-    this.getAllCountriesByApi().subscribe((countries) => {
+    this.getCountriesFromApi().subscribe((countries) => {
       this.localStorage.set('countries', countries);
-      this.allCountries$$.next(this.getCountriesByLocalStorage());
+      this.allCountries$$.next(this.getCountriesFromLocalStorage());
     });
   }
 
-  getAllCountriesByApi() {
+  getCountriesFromApi() {
     return this.http.get(`${this.REST_COUNTRIES_API_URL}/all`);
   }
 
-  getCountriesByLocalStorage() {
+  getCountriesFromLocalStorage() {
     const storageCountries: Country[] = this.localStorage.get('countries');
     return storageCountries;
   }
 
   getCountryByName(name: string) {
-    const storageCountries = this.getCountriesByLocalStorage();
+    const storageCountries = this.getCountriesFromLocalStorage();
     const country = storageCountries.find((country: { name: string }) => {
       return country.name.toLowerCase().includes(name.toLowerCase());
     });
@@ -45,7 +45,7 @@ export class RestCountriesApiService {
   }
 
   getCountryByCode(code: string) {
-    const storageCountries = this.getCountriesByLocalStorage();
+    const storageCountries = this.getCountriesFromLocalStorage();
     const country = storageCountries.find((country: { alpha3Code: string }) => {
       return country.alpha3Code.includes(code);
     });
