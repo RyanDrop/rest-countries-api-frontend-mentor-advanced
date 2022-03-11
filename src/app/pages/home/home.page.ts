@@ -37,7 +37,7 @@ export class HomePage implements OnInit {
 
   filtersCountriesByRegionAndName(filters: { search: string; region: string }) {
     const { search, region } = filters;
-    let countries = this.restCountriesApi.getCountriesByLocalStorage();
+    let countries = this.restCountriesApi.getCountriesFromLocalStorage();
 
     if (region) {
       const filterByRegion = countries.filter(

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Currency, Language } from '@models/country.models';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { RestCountriesApiService } from '@services/rest-countries-api/rest-countries-api.service';
 
@@ -26,14 +25,6 @@ export class DetailPage implements OnInit {
 
   get country() {
     return this.restCountriesApi.getCountryByName(this.currentCountry);
-  }
-
-  displayCurrencies(currencies: Currency[]): string {
-    return currencies.map((currency) => currency.name).join(', ');
-  }
-
-  displayLanguages(languages: Language[]) {
-    return languages.map((language) => language.name).join(', ');
   }
 
   displayBorder(borders: string) {
