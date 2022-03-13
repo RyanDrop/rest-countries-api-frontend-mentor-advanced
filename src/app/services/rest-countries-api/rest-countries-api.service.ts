@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Country } from '@models/country.models';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 
 @Injectable({
@@ -41,14 +41,24 @@ export class RestCountriesApiService {
     const country = storageCountries.find((country: { name: string }) => {
       return country.name.toLowerCase().includes(name.toLowerCase());
     });
-    return country;
+
+    if (!country) throw new Error('Country not found');
+
+    return of(country);
   }
 
-  getCountryByCode(code: string) {
+  getCountryBorders(bordersCodes: string[]) {
+    if (!bordersCodes) return [];
+
     const storageCountries = this.getCountriesFromLocalStorage();
-    const country = storageCountries.find((country: { alpha3Code: string }) => {
-      return country.alpha3Code.includes(code);
-    });
-    return country?.name;
+    const countries = storageCountries
+      .filter((country) => {
+        return bordersCodes.includes(country.alpha3Code);
+      })
+      .map((country) => {
+        return country.name;
+      });
+
+    return countries;
   }
 }
