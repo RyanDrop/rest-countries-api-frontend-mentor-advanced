@@ -23,10 +23,12 @@
         <div>
           <p>Top Level Domain: <span>{{ country.topLevelDomain }}</span></p>
           <p>
-            Currencies: <span> {{country.currencies | mapCountryData}}</span>
+            Currencies:
+            <span> {{country.currencies | mapJoinByKey: 'name'}}</span>
           </p>
           <p>
-            Languages: <span>{{ country.languages | mapCountryData }}</span>
+            Languages:
+            <span>{{ country.languages | mapJoinByKey: 'name' }}</span>
           </p>
         </div>
       </div>
