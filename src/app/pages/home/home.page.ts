@@ -5,12 +5,11 @@ import { RestCountriesApiService } from '@services/rest-countries-api/rest-count
 import { BehaviorSubject, debounceTime } from 'rxjs';
 
 @Component({
-  selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+  readonly regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
   filtersGroup: FormGroup;
   countries$$ = new BehaviorSubject<Country[]>([]);
 

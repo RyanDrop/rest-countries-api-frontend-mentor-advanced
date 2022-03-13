@@ -6,7 +6,6 @@ import { Country } from 'app/models/country.models';
 import { of, switchMap } from 'rxjs';
 
 @Component({
-  selector: 'app-detail',
   templateUrl: './detail.page.html',
   styleUrls: ['./detail.page.scss'],
 })
@@ -41,7 +40,7 @@ export class DetailPage implements OnInit {
       )
       .subscribe((country: Country) => {
         this.country = country;
-    });
+      });
   }
 
   trackByFn(index: number, border: any) {

@@ -14,7 +14,8 @@ import { CountryCardComponent } from './components/country-card/country-card.com
 import { HeaderComponent } from './components/header/header.component';
 import { DetailPage } from './pages/detail/detail.page';
 import { HomePage } from './pages/home/home.page';
-import { MapCountryDataPipe } from './pipes/map-country-data/map-country-data.pipe';
+import { MapJoinByKeyPipe } from './pipes/map-join-by-key/map-join-by-key.pipe';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MapCountryDataPipe } from './pipes/map-country-data/map-country-data.pi
     HomePage,
     CountryCardComponent,
     DetailPage,
-    MapCountryDataPipe,
+    MapJoinByKeyPipe,
+
   ],
   imports: [
     BrowserModule,
