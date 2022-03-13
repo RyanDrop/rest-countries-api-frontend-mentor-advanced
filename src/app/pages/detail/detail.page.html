@@ -36,10 +36,10 @@
         <h2>Border Countries:</h2>
         <button
           data-testid="button-borders"
-          *ngFor="let border of country.borders"
-          [routerLink]="'/detail/' + displayBorder(border)"
+          *ngFor="let border of country.borders; trackBy: trackByFn "
+          routerLink="/detail/{{ border }}"
         >
-          {{displayBorder(border)}}
+          {{border}}
         </button>
       </div>
     </div>

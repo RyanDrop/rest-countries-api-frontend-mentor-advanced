@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { RestCountriesApiService } from '@services/rest-countries-api/rest-countries-api.service';
+import { Country } from 'app/models/country.models';
+import { of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-detail',
@@ -10,7 +12,7 @@ import { RestCountriesApiService } from '@services/rest-countries-api/rest-count
 })
 @UntilDestroy()
 export class DetailPage implements OnInit {
-  currentCountry: string;
+  country: Country;
 
   constructor(
     private restCountriesApi: RestCountriesApiService,
@@ -18,16 +20,31 @@ export class DetailPage implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.pipe(untilDestroyed(this)).subscribe((params) => {
-      this.currentCountry = params['country'];
+    this.route.params
+      .pipe(
+        untilDestroyed(this),
+        switchMap((params) => {
+          const currentCountry = params['country'];
+          return this.restCountriesApi.getCountryByName(currentCountry);
+        }),
+        switchMap((country: Country) => {
+          if (!country.borders) return of(country);
+
+          const bordersCode = country.borders;
+          const bordersName =
+            this.restCountriesApi.getCountryBorders(bordersCode);
+          return of({
+            ...country,
+            borders: bordersName,
+          });
+        })
+      )
+      .subscribe((country: Country) => {
+        this.country = country;
     });
   }
 
-  get country() {
-    return this.restCountriesApi.getCountryByName(this.currentCountry);
-  }
-
-  displayBorder(borders: string) {
-    return this.restCountriesApi.getCountryByCode(borders);
+  trackByFn(index: number, border: any) {
+    return border;
   }
 }
