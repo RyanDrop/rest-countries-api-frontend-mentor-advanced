@@ -45,11 +45,9 @@
 
 Deploy do front-end efetuado no [Netlify](https://www.netlify.com/) para visualizar: [Clique Aqui](https://ryan-drop-rest-countries.netlify.app/)
 
-|                             :computer:Desktop                             |                             :iphone: Mobile                              |
-| :-----------------------------------------------------------------------: | :----------------------------------------------------------------------: |
-| <img src="challenge-rest-countries-api-guide\result\desktop-result-screen-1.png" alt="Desktop"/> | <img src="challenge-rest-countries-api-guide\result\mobile-result-screen-1.png" alt="Mobile"/> |
-| <img src="challenge-rest-countries-api-guide\result\desktop-result-screen-2.png" alt="Desktop"/> |  <img src="challenge-rest-countries-api-guide\result\mobile-result-screen-2.png" alt="Mobile"/>  |
-| <img src="challenge-rest-countries-api-guide\result\desktop-dark.png" alt="Desktop"/> | <img src="challenge-rest-countries-api-guide\result\mobile-dark.png" alt="Mobile"/> |
+|                                    :computer:Desktop                                    |                                    :iphone: Mobile                                    |
+| :-------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+| <img src="challenge-rest-countries-api-guide\result\desktop-result.png" alt="Desktop"/> | <img src="challenge-rest-countries-api-guide\result\mobile-result.png" alt="Mobile"/> |
 
 </div>
   
@@ -94,26 +92,27 @@ $ ng serve
 $ yarn install
 # Iniciar o servidor de desenvolvimento
 $ ng serve
-````
+```
 
 </details>
 
 > ⚠️ O servidor de desenvolvimento será iniciado na porta: 4000 - Acesse <http://localhost:4000>
+
 </div>
 
 ---
 
-## :hammer_and_wrench: _Tecnologias_
+## :hammer*and_wrench: \_Tecnologias*
 
 <div align="center">
 
-| :globe_with_meridians: FrontEnd |
-| :-----------------------------: |
-| [HTML 5](https://www.w3schools.com/html/) |
-| [CSS3](https://www.w3schools.com/css/) |
+|             :globe_with_meridians: FrontEnd             |
+| :-----------------------------------------------------: |
+|        [HTML 5](https://www.w3schools.com/html/)        |
+|         [CSS3](https://www.w3schools.com/css/)          |
 | [SCSS](**[Compilador de CSS](https://sass-lang.com/)**) |
-| [TypeScript](https://www.typescriptlang.org/) |
-| [Angular](https://angular.io/) |
+|      [TypeScript](https://www.typescriptlang.org/)      |
+|             [Angular](https://angular.io/)              |
 
 </div>
 
@@ -163,17 +162,16 @@ $ ng serve
  <sub><b>RyanDrop</b></sub>
 </a>
 
-Desenvolvido com ❤️ por RyanDrop  👋🏽 Meus Contatos!
+Desenvolvido com ❤️ por RyanDrop 👋🏽 Meus Contatos!
 
 [![Linkedin Badge](https://img.shields.io/badge/-RyanDrop-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ryan-nascimento-7204a4217/)
 [![Github Badge](https://img.shields.io/badge/-RyanDrop-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/RyanDrop)
-
 
 </div>
 
 ---
 
-## :balance_scale: _Licença_
+## :balance*scale: \_Licença*
 
 <div align="center">
 
