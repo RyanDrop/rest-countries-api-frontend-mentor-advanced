@@ -43,7 +43,7 @@
 
 <div align="center">
 
-Deploy do front-end efetuado no [Netlify](https://www.netlify.com/) para visualizar: [Clique Aqui](https://ryan-drop-rest-countries.netlify.app/)
+Deploy do front-end efetuado no [Netlify](https://www.netlify.com/) para visualizar: [Clique Aqui](https://ryandrop-restcountries.netlify.app/)
 
 |                                    :computer:Desktop                                    |                                    :iphone: Mobile                                    |
 | :-------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
