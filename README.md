@@ -164,7 +164,7 @@ $ ng serve
 
 Desenvolvido com ❤️ por RyanDrop 👋🏽 Meus Contatos!
 
-[![Linkedin Badge](https://img.shields.io/badge/-RyanDrop-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ryan-nascimento-7204a4217/)
+[![Linkedin Badge](https://img.shields.io/badge/-RyanDrop-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/ryan-on/)
 [![Github Badge](https://img.shields.io/badge/-RyanDrop-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/RyanDrop)
 
 </div>
